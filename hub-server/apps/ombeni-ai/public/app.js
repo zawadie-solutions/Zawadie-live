@@ -146,10 +146,8 @@ function renderUserProfile(user) {
 }
 
 document.getElementById('signOutBtn').addEventListener('click', async () => {
-  // There's only one real sign-out now: the hub's. Clear this app's local
-  // session (Calendar connection included) first, then sign out of the hub
-  // itself so re-entering any solution asks for a fresh hub login.
-  await fetch('auth/logout', { method: 'POST' });
+  // There's only one session now (the hub's) — signing out of it also signs
+  // out of everything mounted behind it, Calendar connection included.
   await fetch('/logout', { method: 'POST' });
   window.location.href = '/';
 });

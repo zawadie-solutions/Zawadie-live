@@ -1,11 +1,10 @@
-// Zawadie Solutions Hub — login-gated router for ai.zawadie.com (local dev).
+// Zawadie Solutions Hub — login-gated router for ai.zawadie.com.
 //
-// Serves the hub + login + admin pages (server-rendered, see views/), and
-// reverse-proxies each solution's path to the real app already running on
-// its own localhost port. Each backend's own frontend code was made
-// relative-path / base-path aware (see ombeni-ai/public/app.js,
-// Prompt-Engineering/vite.config.ts and Face-match-system's static page) so
-// it works both standalone on its own port and here, behind a path prefix.
+// Serves the hub + login + admin pages (server-rendered, see views/). Each
+// solution in solutions.js is one of three things (see sol.mode below):
+// mounted in-process (ombeni-ai, prompt-engineering — see apps/), reverse-
+// proxied to a separately-run app on its own port (google-review-monitor),
+// or an external link (bam-comment-review).
 const path = require('node:path');
 const crypto = require('node:crypto');
 const express = require('express');
@@ -17,6 +16,12 @@ const users = require('./store/users');
 const { getSessionSecret } = require('./store/secret');
 const { getSsoSecret } = require('./store/ssoSecret');
 const { requireLogin, requireAdmin, requireSolutionAccess } = require('./middleware/auth');
+const { nameFromEmail } = require('./lib/identity');
+const { router: ombeniRouter, startBackgroundRefresh: startOmbeniBackgroundRefresh } = require('./apps/ombeni-ai/router');
+const peLeaderboard = require('./apps/prompt-engineering/routes/leaderboard');
+const peProgress = require('./apps/prompt-engineering/routes/progress');
+const peAuthMe = require('./apps/prompt-engineering/routes/auth-me');
+const peAuthSignout = require('./apps/prompt-engineering/routes/auth-signout');
 
 const SSO_SECRET = getSsoSecret();
 
@@ -55,15 +60,6 @@ app.use(
     cookie: { httpOnly: true, sameSite: 'lax', maxAge: 1000 * 60 * 60 * 24 * 7 },
   })
 );
-
-function nameFromEmail(email) {
-  return email
-    .split('@')[0]
-    .split(/[._-]+/)
-    .filter(Boolean)
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-    .join(' ');
-}
 
 function solutionsFor(sessionUser) {
   if (!sessionUser) return [];
@@ -238,14 +234,42 @@ app.post('/admin/users/:email/delete', requireLogin, requireAdmin, (req, res) =>
   res.redirect('/admin?notice=' + encodeURIComponent(`${email} was removed.`));
 });
 
-// ---------------- solution proxies ----------------
+// ---------------- solutions: mounted in-process, proxied, or external ------
+//
+// sol.mode is one of:
+//   'mounted'  — runs in this same process (ombeni-ai, prompt-engineering).
+//                Each app mounts differently (one router vs static + 4 API
+//                routers + an SPA fallback), so they're wired explicitly
+//                below rather than through one generic "mount" helper.
+//   'proxy'    — reverse-proxied to a separately-run process, as before.
+//   'external' — links straight out; nothing to mount or proxy.
 
 for (const sol of SOLUTIONS) {
-  if (sol.externalUrl) continue; // links straight out; nothing to proxy
+  if (sol.mode === 'external') continue;
   const prefix = `/${sol.id}`;
 
   app.get(prefix, requireSolutionAccess(sol.id), (req, res) => res.redirect(301, `${prefix}/`));
 
+  if (sol.mode === 'mounted') {
+    if (sol.id === 'ombeni-ai') {
+      app.use(prefix, requireSolutionAccess(sol.id), ombeniRouter);
+      startOmbeniBackgroundRefresh();
+    } else if (sol.id === 'prompt-engineering') {
+      // API routes first so they match before the static/SPA-fallback below.
+      app.use(`${prefix}/api/leaderboard`, requireSolutionAccess(sol.id), peLeaderboard);
+      app.use(`${prefix}/api/progress`, requireSolutionAccess(sol.id), peProgress);
+      app.use(`${prefix}/api/auth`, requireSolutionAccess(sol.id), peAuthMe);
+      app.use(`${prefix}/api/auth`, requireSolutionAccess(sol.id), peAuthSignout);
+      app.use(prefix, requireSolutionAccess(sol.id), express.static(path.join(__dirname, 'apps/prompt-engineering/dist')));
+      // SPA fallback — mirrors Prompt-Engineering's own vercel.json rewrite.
+      app.get(`${prefix}/*`, requireSolutionAccess(sol.id), (req, res) => {
+        res.sendFile(path.join(__dirname, 'apps/prompt-engineering/dist/index.html'));
+      });
+    }
+    continue;
+  }
+
+  // sol.mode === 'proxy'
   app.use(
     prefix,
     requireSolutionAccess(sol.id),
@@ -301,7 +325,10 @@ function start(port) {
   const server = app.listen(port, () => {
     console.log(`Zawadie Solutions Hub listening on http://ai.zawadie.com${port === 80 ? '' : ':' + port}`);
     console.log('Routes:');
-    for (const sol of SOLUTIONS) console.log(`  /${sol.id}/*  ->  ${sol.externalUrl || sol.target}`);
+    for (const sol of SOLUTIONS) {
+      const dest = sol.mode === 'mounted' ? '(in-process)' : sol.externalUrl || sol.target;
+      console.log(`  /${sol.id}/*  ->  ${dest}`);
+    }
   });
   server.on('error', (err) => {
     if (err.code === 'EACCES' && port !== FALLBACK_PORT) {

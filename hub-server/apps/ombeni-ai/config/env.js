@@ -5,7 +5,6 @@
 require('dotenv').config({ override: true });
 
 const env = {
-  PORT: process.env.PORT || 3000,
   OPENAI_API_KEY: process.env.OPENAI_API_KEY || '',
   MONDAY_API_KEY: process.env.MONDAY_API_KEY || '',
   MONDAY_BOARD_ID: process.env.MONDAY_BOARD_ID || '',
@@ -30,10 +29,9 @@ const env = {
   // is what actually enforces that; without it, exchangeCodeForUser accepted
   // any Google account with a verified email, from any domain.
   GOOGLE_ALLOWED_DOMAIN: process.env.GOOGLE_ALLOWED_DOMAIN || 'zawadie.com',
-  SESSION_SECRET: process.env.SESSION_SECRET || 'ombeni-dev-secret-change-me',
-  // Shared with the Zawadie Hub (hub-server/data/sso-secret.txt) so this app
-  // can trust a sign-in that already happened there instead of running its
-  // own login gate.
+  // No longer used to verify anything (this app is mounted in-process behind
+  // the hub's own login now) — kept only as the "is an identity source
+  // configured at all" flag read by routes/api.js's hasIdentitySource().
   SSO_SHARED_SECRET: process.env.ZAWADIE_SSO_SECRET || ''
 };
 

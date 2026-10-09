@@ -8,9 +8,16 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
+    "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
     "express-session": "^1.18.1",
-    "http-proxy-middleware": "^3.0.3"
+    "google-auth-library": "^11.1.0",
+    "http-proxy-middleware": "^3.0.3",
+    "mammoth": "^1.12.3",
+    "multer": "^2.4.0",
+    "openai": "^4.38.0",
+    "pdf-parse": "^1.1.1"
   }
 }

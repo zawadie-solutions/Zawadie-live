@@ -17,25 +17,18 @@ router.get('/google/callback', async (req, res) => {
     if (!req.query.code) throw new Error('Missing authorization code');
     const { user, googleTokens } = await authService.exchangeCodeForUser(req.query.code);
     // This is now a "connect Google Calendar" action, not the sign-in gate
-    // (that's the hub's job — see services/hubTrust.js). Merge Google's
+    // (that's the hub's job — req.session.user is already set by the time
+    // this router runs, mounted behind hub-server's own login). Merge Google's
     // richer profile (name, picture) onto whatever identity is already
     // there rather than replacing it, so a hub-sourced email can't be
     // swapped out by connecting a different Google account.
     req.session.user = { ...req.session.user, ...user };
     req.session.googleTokens = googleTokens; // server-side only, used for Calendar API calls
     store.logActivity({ user: req.session.user.name, action: 'Connected Google Calendar', source: 'Google', result: 'Success' });
-    res.redirect('/');
+    res.redirect('/ombeni-ai/');
   } catch (err) {
     res.status(401).send(`Sign-in failed: ${err.message}`);
   }
-});
-
-router.post('/logout', (req, res) => {
-  const user = req.session.user;
-  req.session.destroy(() => {
-    if (user) store.logActivity({ user: user.name, action: 'Signed out', source: 'Google' });
-    res.json({ success: true });
-  });
 });
 
 router.get('/me', (req, res) => {

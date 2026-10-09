@@ -33,11 +33,12 @@ router.get('/status', (req, res) => {
   });
 });
 
-// Identity can come from the Zawadie Hub's trusted header (the normal path)
-// or, as a fallback, from connecting Google Calendar directly (see
-// services/hubTrust.js and routes/auth.js). Only when NEITHER is set up —
-// pure standalone dev with no hub and no Google creds — does the app run
-// fully open, same graceful-degradation pattern as Monday/Slack.
+// Identity normally comes from the Zawadie Hub's own login (req.session.user
+// is already set by the time this router runs, mounted behind hub-server's
+// requireSolutionAccess), or as a fallback, from connecting Google Calendar
+// directly (see routes/auth.js). Only when NEITHER is set up — pure
+// standalone dev with no hub and no Google creds — does the app run fully
+// open, same graceful-degradation pattern as Monday/Slack.
 function hasIdentitySource() {
   return Boolean(env.SSO_SHARED_SECRET) || authService.isConfigured();
 }

@@ -28,10 +28,9 @@ module.exports = [
     description:
       "Zawadie's standalone AI employee — a company assistant that answers questions and gets work done by plugging into calendar, Slack, and Monday.com.",
     status: 'available',
-    // Its own Hostinger Node.js Web App (ombeni.zawadie.com) in production;
-    // falls back to the locally-running instance for dev.
-    target: process.env.OMBENI_AI_URL || 'http://localhost:3000',
-    stripPrefix: true,
+    // Mounted in-process (see apps/ombeni-ai/router.js, wired in server.js) —
+    // no separate process, no proxy target.
+    mode: 'mounted',
     icon: 'bot',
   },
   {
@@ -41,11 +40,10 @@ module.exports = [
     description:
       'Zawadie PromptClass — internal prompt-engineering training for Zawadie Solutions agents, with lessons, exams, progress tracking, and a leaderboard.',
     status: 'available',
-    // Stays on Vercel (serverless API + Postgres) — the hub just proxies the
-    // /prompt-engineering/ path to its Vercel production URL instead of a
-    // local port. Set PROMPT_ENGINEERING_URL to that URL in production.
-    target: process.env.PROMPT_ENGINEERING_URL || 'http://localhost:5173',
-    stripPrefix: false,
+    // Mounted in-process (built frontend + hand-ported API routes under
+    // apps/prompt-engineering/, wired in server.js) — the standalone Vercel
+    // deployment this used to proxy to is no longer used by the hub.
+    mode: 'mounted',
     icon: 'cap',
   },
   // Face-match-system is intentionally absent — it's a Python/FastAPI
@@ -61,6 +59,9 @@ module.exports = [
     // Still being built out (see google-review-monitor/README.md) — listed
     // so the team can see it coming, but not yet promoted to "available".
     status: 'development',
+    // Its own ESM/TypeScript cron-worker process (own Postgres DB, no build
+    // step) — not a candidate for in-process merging; stays reverse-proxied.
+    mode: 'proxy',
     target: process.env.GOOGLE_REVIEW_MONITOR_URL || 'http://localhost:3002',
     stripPrefix: true,
     icon: 'star',
@@ -78,6 +79,7 @@ module.exports = [
     status: 'available',
     // Hosted separately on Vercel, so the hub just links out to it instead
     // of proxying a local server.
+    mode: 'external',
     externalUrl: 'https://cm-system-sable.vercel.app/',
     icon: 'chat',
   },
