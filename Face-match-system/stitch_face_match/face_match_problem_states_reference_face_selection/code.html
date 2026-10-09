@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Face Match — Family Archival Likeness Explorer</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline": "#87736d",
+            "on-surface": "#1c1c19",
+            "error": "#ba1a1a",
+            "on-secondary-fixed": "#2a1800",
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed": "#3a0a00",
+            "on-primary": "#ffffff",
+            "tertiary": "#4b5f69",
+            "secondary": "#835400",
+            "on-secondary-container": "#734900",
+            "on-error": "#ffffff",
+            "inverse-on-surface": "#f3f0eb",
+            "surface-container-low": "#f6f3ee",
+            "on-tertiary-fixed": "#091e26",
+            "primary-container": "#af5e45",
+            "on-secondary": "#ffffff",
+            "primary": "#91462f",
+            "on-primary-container": "#fffbff",
+            "on-background": "#1c1c19",
+            "error-container": "#ffdad6",
+            "surface-container": "#f0ede9",
+            "surface-bright": "#fcf9f4",
+            "surface": "#fcf9f4",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-highest": "#e5e2dd",
+            "on-tertiary-fixed-variant": "#364a53",
+            "on-secondary-fixed-variant": "#643f00",
+            "secondary-fixed": "#ffddb5",
+            "primary-fixed-dim": "#ffb59f",
+            "outline-variant": "#dac1ba",
+            "primary-fixed": "#ffdbd0",
+            "on-tertiary-container": "#fbfdff",
+            "on-error-container": "#93000a",
+            "secondary-fixed-dim": "#fcba5f",
+            "inverse-primary": "#ffb59f",
+            "inverse-surface": "#31302d",
+            "surface-tint": "#944931",
+            "tertiary-fixed": "#d0e6f1",
+            "surface-container-high": "#ebe8e3",
+            "on-surface-variant": "#54433e",
+            "tertiary-fixed-dim": "#b5cad5",
+            "surface-dim": "#dcdad5",
+            "tertiary-container": "#637882",
+            "background": "#fcf9f4",
+            "on-primary-fixed-variant": "#76321d",
+            "surface-variant": "#e5e2dd",
+            "secondary-container": "#fcba5f"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-mobile": "1rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "gutter": "1.5rem",
+            "gutter-sm": "1rem",
+            "space-xl": "2.5rem",
+            "margin": "2rem",
+            "margin-desktop": "3rem",
+            "margin-tablet": "1.5rem",
+            "space-xs": "0.25rem",
+            "gutter-lg": "2rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "headline-sm": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "0", "fontWeight": "600" }],
+            "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.03em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "0", "fontWeight": "400" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.005em", "fontWeight": "400" }],
+            "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "display-lg-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+    .archival-shadow-base {
+      box-shadow: 0 2px 8px -2px rgba(50, 40, 30, 0.05), 0 1px 3px 0 rgba(50, 40, 30, 0.03);
+    }
+    .archival-shadow-elevated {
+      box-shadow: 0 12px 28px -6px rgba(50, 40, 30, 0.08), 0 4px 12px -2px rgba(50, 40, 30, 0.04);
+    }
+    input[type=range]::-webkit-slider-thumb {
+      appearance: none;
+      height: 18px;
+      width: 18px;
+      border-radius: 9999px;
+      background: #91462f;
+      cursor: pointer;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+      border: 2px solid #ffffff;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md antialiased min-h-screen flex flex-col selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar (Shared Component) -->
+<header class="bg-surface-container-lowest dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm docked full-width top-0 z-30 sticky">
+<div class="flex justify-between items-center w-full px-8 max-w-7xl mx-auto h-16">
+<div class="flex items-center gap-6">
+<a class="flex items-center gap-2.5 text-headline-md font-headline-md text-primary dark:text-primary-fixed tracking-tight" href="#">
+<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center border border-outline-variant/60 text-primary">
+<span class="material-symbols-outlined" data-icon="photo_album">photo_album</span>
+</span>
+<span>Face Match</span>
+</a>
+<nav class="hidden md:flex items-center gap-6 ml-4">
+<a class="text-on-surface-variant dark:text-surface-dim hover:text-on-surface dark:hover:text-surface-bright pb-1 transition-colors text-label-lg font-label-lg" href="#">Archive</a>
+<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary dark:border-primary-fixed pb-1 text-label-lg font-label-lg" href="#">Inspection Canvas</a>
+<a class="text-on-surface-variant dark:text-surface-dim hover:text-on-surface dark:hover:text-surface-bright pb-1 transition-colors text-label-lg font-label-lg" href="#">Family Tree</a>
+<a class="text-on-surface-variant dark:text-surface-dim hover:text-on-surface dark:hover:text-surface-bright pb-1 transition-colors text-label-lg font-label-lg" href="#">Privacy Pledge</a>
+</nav>
+</div>
+<div class="flex items-center gap-3">
+<div class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container border border-outline-variant/40 text-on-surface-variant text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-tertiary text-[16px]" data-icon="lock_open">lock_open</span>
+<span>On-Device Matcher</span>
+</div>
+<button class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" title="Help Guide">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<button class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" title="Settings">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-5 w-px bg-outline-variant mx-1"></div>
+<button class="px-3.5 py-1.5 rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface hover:bg-surface-container text-label-lg font-label-lg transition-colors">
+          Export Report
+        </button>
+<button class="px-4 py-1.5 rounded-lg bg-primary text-on-primary hover:bg-primary-container text-label-lg font-label-lg active:scale-[0.99] transition-all shadow-sm flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]" data-icon="add_circle">add_circle</span>
+<span>New Comparison</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Contextual Subheader & Privacy Trust Banner -->
+<section class="bg-surface-container-low border-b border-outline-variant/50 py-5"><div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row md:items-center justify-between gap-4"><div><div class="flex items-center gap-2"><h1 class="text-headline-sm font-headline-sm text-on-surface tracking-tight">Family Album Likeness Inspector</h1><span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed text-label-sm font-label-sm font-semibold">Selection Required</span></div><p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">Multiple subjects detected in the reference portrait. Select one person to compare against your collection.</p></div><div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-surface-container-lowest border border-outline-variant/60 shadow-sm text-tertiary self-start md:self-auto"><span class="material-symbols-outlined text-primary text-[18px]" data-icon="verified_user">verified_user</span><span class="text-label-md font-label-md text-on-surface font-medium">Local on-device processing · Private &amp; secure</span></div></div></section>
+<!-- Main Content Workspace (Two Columns) -->
+<main class="flex-1 max-w-7xl w-full mx-auto px-8 py-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- LEFT COLUMN: Reference Photo Panel (5 cols) -->
+<section class="lg:col-span-5 flex flex-col gap-4"><div class="bg-surface-container-lowest rounded-xl border border-outline-variant/70 p-6 archival-shadow-base"><div class="flex items-start justify-between mb-3"><div><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]" data-icon="person_pin">person_pin</span><h2 class="text-headline-sm font-headline-sm text-on-surface">Reference photo</h2></div><p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">Choose baseline subject to match against</p></div><button class="inline-flex items-center gap-1 text-label-lg font-label-lg text-primary hover:text-primary-container font-semibold transition-colors"><span class="material-symbols-outlined text-[16px]" data-icon="swap_horiz">swap_horiz</span><span>Replace photo</span></button></div><div class="mb-3 p-3 rounded-lg bg-secondary-fixed/50 border border-secondary-container flex items-start gap-2.5 text-on-secondary-fixed"><span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5" data-icon="touch_app">touch_app</span><div><div class="text-label-md font-label-md font-bold text-on-secondary-fixed">Choose a face in the reference photo to compare</div><p class="text-body-sm font-body-sm text-on-secondary-container mt-0.5">3 people detected in this archive photo. Tap a numbered face tag or button below.</p></div></div><div class="p-2.5 bg-surface-container-low rounded-xl border border-outline-variant/50 mb-3"><div class="relative overflow-hidden rounded-lg bg-surface-container-highest border border-outline-variant/40 aspect-[4/5] flex items-center justify-center"><img class="w-full h-full object-cover object-center" data-alt="Archival vintage 1950s photograph of three family members sitting on a front porch bench, including grandfather William in a casual collared shirt, his sister, and a cousin smiling." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDg4xoHGFHfKbh8LMOImZRCFQEkkQKpgcICUVVVH_92CIyQc5vW2mRI7aEnhzi9Bu51yV9K7oJf1LWZTDd9ugHYZxW_3tLIy1kdpbJro7N_eQLocdKFpGZJ4JNoWH4cCSop3BWazkJA9vGjq2gZRwZocpjVQa-Gz2elX2CsN1DhDtztJktOl0bT4rS61R0vpdWyYU0gu64yxCxkE7IVG-sLpoam0r4NIDYFn-c0SmYgEm_Ht1sSfE5k"/><div class="absolute top-[32%] left-[16%] w-[26%] h-[30%] border-2 border-dashed border-primary/90 bg-primary/10 rounded cursor-pointer transition-all hover:bg-primary/20 shadow-sm"><span class="absolute -top-3 -left-2 w-6 h-6 rounded-full bg-primary text-on-primary text-label-sm font-bold flex items-center justify-center border-2 border-surface-container-lowest shadow-sm">1</span></div><div class="absolute top-[30%] left-[46%] w-[24%] h-[28%] border-2 border-dashed border-outline rounded bg-surface/30 cursor-pointer hover:border-primary transition-all"><span class="absolute -top-3 -left-2 w-6 h-6 rounded-full bg-surface-container-lowest text-on-surface text-label-sm font-bold flex items-center justify-center border border-outline-variant shadow-sm">2</span></div><div class="absolute top-[34%] right-[10%] w-[24%] h-[28%] border-2 border-dashed border-outline rounded bg-surface/30 cursor-pointer hover:border-primary transition-all"><span class="absolute -top-3 -left-2 w-6 h-6 rounded-full bg-surface-container-lowest text-on-surface text-label-sm font-bold flex items-center justify-center border border-outline-variant shadow-sm">3</span></div><div class="absolute bottom-3 left-3 bg-surface-container-lowest/90 backdrop-blur-sm border border-outline-variant/50 px-2.5 py-1 rounded-md text-label-sm font-label-sm text-on-surface shadow-sm flex items-center gap-1.5"><span class="material-symbols-outlined text-[14px] text-tertiary" data-icon="calendar_today">calendar_today</span><span>Circa 1952 · Group</span></div></div></div><div class="bg-surface-container-high/60 rounded-lg p-3 border border-outline-variant/50 mb-3"><div class="flex items-center justify-between text-label-sm font-label-sm mb-2"><span class="font-bold text-on-surface">3 faces identified</span><span class="text-secondary font-bold">No face selected yet</span></div><div class="grid grid-cols-3 gap-2 mb-2"><button class="py-1.5 px-2 rounded-lg bg-surface-container-lowest border-2 border-primary text-primary font-bold text-label-sm font-label-sm flex items-center justify-center gap-1.5 shadow-sm hover:bg-primary/5 transition-colors"><span class="w-2 h-2 rounded-full bg-primary"></span><span>Face 1 (Left)</span></button><button class="py-1.5 px-2 rounded-lg bg-surface-container border border-outline-variant text-on-surface text-label-sm font-label-sm flex items-center justify-center gap-1 hover:bg-surface-container-lowest transition-colors"><span>Face 2 (Center)</span></button><button class="py-1.5 px-2 rounded-lg bg-surface-container border border-outline-variant text-on-surface text-label-sm font-label-sm flex items-center justify-center gap-1 hover:bg-surface-container-lowest transition-colors"><span>Face 3 (Right)</span></button></div><p class="text-label-sm font-label-sm text-on-surface-variant text-center">Select target face to begin likeness comparison</p></div><div class="flex items-center justify-between py-2 px-3 bg-surface-container-low rounded-lg border border-outline-variant/40 text-label-sm font-label-sm"><div class="flex items-center gap-2 text-on-surface truncate max-w-[200px]"><span class="material-symbols-outlined text-[16px] text-on-surface-variant" data-icon="draft">draft</span><span class="truncate font-semibold">family_veranda_1952.jpg</span></div><div class="flex items-center gap-3 text-on-surface-variant"><span>2.4 MB</span><span class="w-1 h-1 rounded-full bg-outline"></span><span class="text-tertiary font-medium">Group portrait</span></div></div></div><div class="bg-surface-container-low rounded-xl border border-outline-variant/50 p-5"><div class="flex items-center gap-2 text-primary font-semibold mb-1"><span class="material-symbols-outlined text-[18px]" data-icon="tips_and_updates">tips_and_updates</span><span class="text-label-lg font-label-lg">Genealogy Inspection Tip</span></div><p class="text-body-sm font-body-sm text-on-surface-variant">When working with group photographs, select the individual whose facial angle most closely mirrors your comparison pool for the most reliable likeness score.</p></div></section>
+<!-- RIGHT COLUMN: Photos to Check Panel (7 cols) -->
+<section class="lg:col-span-7 flex flex-col gap-4">
+<!-- Header Row -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-surface-container-lowest p-4 rounded-xl border border-outline-variant/70 archival-shadow-base">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-md bg-secondary-fixed/50 flex items-center justify-center text-secondary font-bold text-label-md font-label-md">3</span>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Photos to check (3 photos)</h2>
+</div>
+<button class="inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-outline-variant bg-surface-container-lowest hover:bg-surface-container text-on-surface text-label-lg font-label-lg font-semibold transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="add_photo_alternate">add_photo_alternate</span>
+<span>Add photos</span>
+</button>
+</div>
+<!-- Summary Banner -->
+<div class="p-4 rounded-xl bg-surface-container border border-outline-variant/60 flex items-center gap-3 archival-shadow-base"><div class="w-10 h-10 rounded-full bg-secondary-fixed/60 border border-secondary-container flex items-center justify-center text-secondary shrink-0 shadow-sm"><span class="material-symbols-outlined text-[22px]" data-icon="pause_circle">pause_circle</span></div><div class="flex-1"><div class="text-label-lg font-label-lg text-on-surface font-bold">Choose a face in the reference photo to compare</div><p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">Likeness matching is currently paused. Once a reference face is chosen, comparison scores will automatically compute.</p></div></div>
+<!-- Responsive Grid of 3 Photo Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4"><article class="bg-surface-container-lowest rounded-xl border border-outline-variant/70 p-3.5 flex flex-col justify-between archival-shadow-base hover:border-outline transition-colors"><div><div class="flex items-center justify-between mb-2"><span class="text-label-sm font-label-sm font-semibold text-on-surface-variant truncate max-w-[120px]" title="landscape_homestead_1949.jpg">homestead_1949.jpg</span><button class="text-on-surface-variant hover:text-error transition-colors p-1" title="Remove photograph"><span class="material-symbols-outlined text-[16px]" data-icon="close">close</span></button></div><div class="p-1.5 bg-surface-container-low rounded-lg border border-outline-variant/40 mb-3"><div class="relative overflow-hidden rounded-md aspect-[4/5] bg-surface-container-high flex flex-col items-center justify-center p-4 text-center"><div class="w-12 h-12 rounded-full bg-secondary-fixed/50 flex items-center justify-center text-secondary mb-2"><span class="material-symbols-outlined text-[24px]" data-icon="face_retouching_off">face_retouching_off</span></div><span class="text-label-sm font-label-sm text-on-surface-variant font-medium">Distant view / blurred subject</span><div class="absolute top-2 right-2 bg-surface-container-lowest/90 px-1.5 py-0.5 rounded text-label-sm font-label-sm border border-outline-variant/40">1949</div></div></div></div><div class="pt-1"><div class="w-full py-2 px-3 rounded-lg bg-surface-container-low border border-outline-variant/60 flex items-start gap-2 text-left"><span class="material-symbols-outlined text-secondary text-[16px] shrink-0 mt-0.5" data-icon="info">info</span><div><div class="text-label-sm font-label-sm font-bold text-on-surface">No face found</div><p class="text-label-sm font-label-sm text-on-surface-variant mt-0.5 leading-snug">Try a photo where the face is larger and clearly visible.</p></div></div></div></article><article class="bg-surface-container-lowest rounded-xl border border-outline-variant/70 p-3.5 flex flex-col justify-between archival-shadow-base hover:border-outline transition-colors"><div><div class="flex items-center justify-between mb-2"><span class="text-label-sm font-label-sm font-semibold text-on-surface-variant truncate max-w-[120px]" title="scan_damaged_negative.raw">scan_damaged.raw</span><button class="text-on-surface-variant hover:text-error transition-colors p-1" title="Remove file"><span class="material-symbols-outlined text-[16px]" data-icon="close">close</span></button></div><div class="p-1.5 bg-surface-container-low rounded-lg border border-outline-variant/40 mb-3"><div class="relative overflow-hidden rounded-md aspect-[4/5] bg-surface-container-high flex flex-col items-center justify-center p-4 text-center border border-dashed border-outline-variant/60"><div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-outline mb-2"><span class="material-symbols-outlined text-[26px]" data-icon="broken_image">broken_image</span></div><span class="text-label-sm font-label-sm font-semibold text-on-surface">Unreadable file</span><span class="text-label-sm font-label-sm text-on-surface-variant mt-1">Corrupted header data</span><div class="absolute top-2 right-2 bg-surface-container-lowest/90 px-1.5 py-0.5 rounded text-label-sm font-label-sm border border-outline-variant/40">RAW</div></div></div></div><div class="pt-1"><div class="w-full py-2 px-3 rounded-lg bg-surface-container-low border border-outline-variant/60 flex items-start gap-2 text-left"><span class="material-symbols-outlined text-outline text-[16px] shrink-0 mt-0.5" data-icon="report_problem">report_problem</span><div><div class="text-label-sm font-label-sm font-bold text-on-surface">This file can't be read as an image</div><p class="text-label-sm font-label-sm text-on-surface-variant mt-0.5 leading-snug">Supported formats: JPG, PNG, TIFF, WebP</p></div></div></div></article><article class="bg-surface-container-lowest rounded-xl border border-outline-variant/70 p-3.5 flex flex-col justify-between archival-shadow-base hover:border-outline transition-colors"><div><div class="flex items-center justify-between mb-2"><span class="text-label-sm font-label-sm font-semibold text-on-surface-variant truncate max-w-[120px]" title="william_reunion_1984.jpg">william_reunion_1984.jpg</span><button class="text-on-surface-variant hover:text-error transition-colors p-1" title="Remove photograph"><span class="material-symbols-outlined text-[16px]" data-icon="close">close</span></button></div><div class="p-1.5 bg-surface-container-low rounded-lg border border-outline-variant/40 mb-3"><div class="relative overflow-hidden rounded-md aspect-[4/5] bg-surface-container-high"><img class="w-full h-full object-cover opacity-80" data-alt="Archival 1984 portrait of senior gentleman in outdoor patio, ready for comparison." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqQQ0MXelLs2YYoZdE7Cva26eg9Itm7YJXtjenjGJ3Xk4XgVTECXjVcssyXVWmfF_WbIAET_oSJqI8eZVi1pAvZ__4UbsBP9P28Av4LC15_WiDcWFcmiNWE31XQc2RiZbNG_MRqMd3XNNocakDcGrjtkolV2zAWifmZGQNElCyfGHCATcdRL6-ezo7tU-Hp5w06ZRs5-6tYlWNHhqaXeVnW9CoXdIWUVdpJjVMi2q8YlPJq3ZXJtna"/><div class="absolute top-2 right-2 bg-surface-container-lowest/90 px-1.5 py-0.5 rounded text-label-sm font-label-sm border border-outline-variant/40">1984</div><div class="absolute inset-0 bg-surface-container-lowest/30 backdrop-blur-[1px] flex items-center justify-center"><span class="px-2.5 py-1 rounded-md bg-surface-container-lowest/90 border border-outline-variant/60 text-label-sm font-label-sm font-semibold text-on-surface shadow-sm">Photo Ready</span></div></div></div></div><div class="pt-1"><div class="w-full py-2 px-3 rounded-lg bg-surface-container border border-outline-variant/60 flex items-center justify-between"><div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-outline"></span><span class="text-label-sm font-label-sm font-bold text-on-surface">Awaiting reference face</span></div><span class="text-label-sm font-label-sm text-on-surface-variant font-medium">Paused</span></div><p class="text-label-sm font-label-sm text-tertiary text-center mt-1.5 font-medium">Likeness will compute upon selection</p></div></article></div>
+</section>
+</div>
+</main>
+<!-- BOTTOM DOCK / CONTROL BAR (Full-width Grounded) -->
+<section class="mt-auto bg-surface-container-lowest border-t border-outline-variant shadow-lg sticky bottom-0 z-20">
+<div class="max-w-7xl mx-auto px-8 py-4 flex flex-col md:flex-row items-center justify-between gap-6">
+<!-- Left: Match threshold Slider Control -->
+<div class="w-full md:max-w-md flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="text-label-lg font-label-lg font-bold text-on-surface flex items-center gap-1.5" for="threshold-range">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="tune">tune</span>
+<span>Match threshold:</span>
+<span class="text-primary font-bold" id="threshold-val">0.26 (default)</span>
+</label>
+<span class="text-label-sm font-label-sm text-tertiary">Recommended for 25+ year gaps</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-label-sm font-label-sm text-on-surface-variant whitespace-nowrap">More lenient</span>
+<input class="w-full h-2 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary" id="threshold-range" max="0.60" min="0.10" oninput="document.getElementById('threshold-val').innerText = this.value + (this.value == '0.26' ? ' (default)' : '')" step="0.01" type="range" value="0.26"/>
+<span class="text-label-sm font-label-sm text-on-surface-variant whitespace-nowrap">Stricter</span>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">
+          Scores at or above this count as the same person. Higher is stricter.
+        </p>
+</div>
+<!-- Right: Action Buttons -->
+<div class="flex items-center gap-4 w-full md:w-auto justify-end"><button class="px-4 py-2.5 rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface-variant hover:text-on-surface hover:bg-surface-container text-label-lg font-label-lg font-semibold transition-colors">Reset all</button><button class="px-6 py-2.5 rounded-lg bg-primary/70 text-on-primary cursor-pointer text-label-lg font-label-lg font-bold transition-all shadow flex items-center gap-2" title="Please select a reference face above"><span class="material-symbols-outlined text-[20px]" data-icon="touch_app">touch_app</span><span>Select reference face</span></button></div>
+</div>
+</section>
+<!-- Footer (Shared Component) -->
+<footer class="bg-surface-container-low dark:bg-surface-dim border-t border-outline-variant dark:border-outline w-full">
+<div class="max-w-7xl mx-auto px-8 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="shield">shield</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant dark:text-outline-variant max-w-2xl">
+          © 2024 Face Match Archival Discovery. On-device processing certified. Photographs remain your private family memory; no biometric data is ever stored, sold, or shared.
+        </p>
+</div>
+<div class="flex flex-wrap items-center gap-6 text-label-sm font-label-sm text-on-surface-variant dark:text-outline-variant">
+<a class="hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">Privacy Charter</a>
+<a class="hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">Ancestry Standards</a>
+<a class="hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">Local Processing Guarantee</a>
+<a class="hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">Help Center</a>
+</div>
+</div>
+</footer>
+</body></html>

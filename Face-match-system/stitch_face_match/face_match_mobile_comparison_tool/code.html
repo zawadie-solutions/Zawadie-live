@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Face Match - Archival Comparison</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-on-surface": "#f3f0eb",
+            "inverse-primary": "#ffb59f",
+            "on-error-container": "#93000a",
+            "outline": "#87736d",
+            "on-primary-fixed-variant": "#76321d",
+            "on-error": "#ffffff",
+            "surface": "#fcf9f4",
+            "on-primary-fixed": "#3a0a00",
+            "on-tertiary-container": "#fbfdff",
+            "tertiary": "#4b5f69",
+            "surface-tint": "#944931",
+            "secondary-fixed-dim": "#fcba5f",
+            "surface-container": "#f0ede9",
+            "on-tertiary-fixed": "#091e26",
+            "on-tertiary": "#ffffff",
+            "on-primary": "#ffffff",
+            "inverse-surface": "#31302d",
+            "background": "#fcf9f4",
+            "primary": "#91462f",
+            "on-surface": "#1c1c19",
+            "surface-container-high": "#ebe8e3",
+            "primary-fixed-dim": "#ffb59f",
+            "surface-dim": "#dcdad5",
+            "tertiary-fixed-dim": "#b5cad5",
+            "on-surface-variant": "#54433e",
+            "tertiary-container": "#637882",
+            "primary-container": "#af5e45",
+            "on-secondary": "#ffffff",
+            "outline-variant": "#dac1ba",
+            "on-secondary-fixed-variant": "#643f00",
+            "secondary-fixed": "#ffddb5",
+            "on-tertiary-fixed-variant": "#364a53",
+            "surface-container-lowest": "#ffffff",
+            "surface-variant": "#e5e2dd",
+            "surface-bright": "#fcf9f4",
+            "on-primary-container": "#fffbff",
+            "on-secondary-container": "#734900",
+            "on-secondary-fixed": "#2a1800",
+            "surface-container-low": "#f6f3ee",
+            "surface-container-highest": "#e5e2dd",
+            "on-background": "#1c1c19",
+            "primary-fixed": "#ffdbd0",
+            "error": "#ba1a1a",
+            "secondary": "#835400",
+            "secondary-container": "#fcba5f",
+            "error-container": "#ffdad6",
+            "tertiary-fixed": "#d0e6f1"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "margin-desktop": "3rem",
+            "margin-tablet": "1.5rem",
+            "space-md": "1rem",
+            "margin": "2rem",
+            "margin-mobile": "1rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2.5rem",
+            "gutter": "1.5rem",
+            "gutter-lg": "2rem",
+            "gutter-sm": "1rem"
+          },
+          "fontFamily": {
+            "display-lg": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "0", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "0", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.03em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "display-lg-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0", "fontWeight": "400" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.005em", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Soft tactile ambient shadows */
+    .archival-card-shadow {
+      box-shadow: 0 2px 8px -2px rgba(50, 40, 30, 0.05), 0 1px 3px 0 rgba(50, 40, 30, 0.03);
+    }
+    .archival-lifted-shadow {
+      box-shadow: 0 12px 28px -6px rgba(50, 40, 30, 0.08), 0 4px 12px -2px rgba(50, 40, 30, 0.04);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex justify-center selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Mobile Container strictly 390px layout -->
+<div class="w-full max-w-[390px] min-h-screen bg-surface flex flex-col relative pb-52 shadow-xl border-x border-outline-variant/20">
+<!-- Top Navigation Anchor (Shared Component TopAppBar docked mobile) -->
+<header class="fixed top-0 left-0 right-0 w-full max-w-[390px] mx-auto z-50 flex items-center justify-between px-4 py-3 bg-surface border-b border-outline-variant/30 shadow-sm backdrop-blur-md bg-surface/95">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="shield">shield</span>
+<span class="text-headline-sm font-headline-sm text-primary tracking-tight font-bold">Archive Match</span>
+</div>
+<div class="flex items-center gap-1">
+<button aria-label="Help and instructions" class="p-1.5 rounded-full text-on-surface-variant hover:bg-surface-container transition-colors duration-150 active:scale-95 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas (Single Column) -->
+<main class="flex-1 px-4 pt-16 flex flex-col gap-4">
+<!-- Section 1: Compact Mobile Header & Privacy Reassurance -->
+<section class="mt-2 flex flex-col gap-2">
+<div class="flex items-center justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="face">face</span>
+<h1 class="text-headline-lg-mobile font-headline-lg-mobile text-on-surface">Face Match</h1>
+</div>
+<!-- Privacy Reassurance Pill -->
+<div class="flex items-center gap-1.5 bg-surface-container-low px-2.5 py-1 rounded-full border border-outline-variant/40 shadow-xs">
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="lock">lock</span>
+<span class="text-label-sm font-label-sm text-tertiary tracking-normal">100% On-device · Private</span>
+</div>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+          Check whether photos taken years apart show the same person. Processed locally &amp; private.
+        </p>
+</section>
+<!-- Section 2: Reference Photo Section -->
+<section class="flex flex-col gap-2">
+<div class="flex items-center justify-between px-0.5">
+<h2 class="text-label-lg font-label-lg text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-base" data-icon="portrait">portrait</span>
+            Reference photo
+          </h2>
+<button class="text-label-md font-label-md text-primary hover:text-primary-container px-2.5 py-1 rounded-lg bg-surface-container-low hover:bg-surface-container border border-outline-variant/40 transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="sync">sync</span>
+            Replace
+          </button>
+</div>
+<!-- Archival Mat Frame Card -->
+<div class="bg-surface-container-lowest rounded-xl p-2.5 border border-outline-variant/40 archival-card-shadow relative">
+<!-- Inner Sepia/Archival Matted Border -->
+<div class="rounded-lg overflow-hidden border border-outline-variant/30 bg-surface-container-low relative flex flex-col">
+<div class="relative w-full h-44 overflow-hidden group">
+<img class="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105" data-alt="A warm sepia vintage family portrait photograph from 1952 showing a handsome young grandfather dressed in mid-century attire with gentle ambient lighting and authentic natural film grain texture in an archival cream mountboard frame." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABB5DsPFWl8hnzl8Ip9OFHnUY9lIekdzU_AhlFmFHKYhAel2xV0MF9ArhDsmPHjZC-FNmrn4m3YJEgL2f3iwel30eYcjEYD3-JFpdZAaRQFePFqKwgYk0J6nERUHus4KY1ijzMckDr-rm0RD0DErVWFVNdx8bSJGU5eQQ6NPjH1XE4b7ibNdn-VwUQHcEQlSMS-0ZbZpqsHKgXNU2Dk50VEdb-n9ZQVzj04J08DCckWmTbUGEpdoLq"/>
+<div class="absolute top-2 left-2 bg-surface-container-lowest/90 backdrop-blur-xs px-2 py-0.5 rounded-full border border-outline-variant/30 flex items-center gap-1 shadow-xs">
+<span class="material-symbols-outlined text-primary text-xs" data-icon="calendar_today">calendar_today</span>
+<span class="text-label-sm font-label-sm text-on-surface">Circa 1952</span>
+</div>
+<div class="absolute bottom-2 right-2 bg-inverse-surface/85 backdrop-blur-xs text-inverse-on-surface px-2 py-0.5 rounded-full text-label-sm font-label-sm shadow-xs">
+                1.8 MB
+              </div>
+</div>
+<!-- Photo Meta and Tap Hint -->
+<div class="p-2.5 flex items-center justify-between border-t border-outline-variant/20 bg-surface-container-lowest">
+<div class="flex flex-col">
+<span class="text-label-md font-label-md text-on-surface font-semibold truncate max-w-[190px]">grandpa_william_1952.jpg</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Archival Reference Master</span>
+</div>
+<span class="text-label-sm font-label-sm text-tertiary flex items-center gap-0.5 bg-surface-container px-2 py-1 rounded-md">
+<span class="material-symbols-outlined text-xs" data-icon="touch_app">touch_app</span> Tap to inspect
+              </span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Summary Banner -->
+<section>
+<div class="bg-surface-container-low border border-outline-variant/40 rounded-xl p-3 flex items-center gap-3 archival-card-shadow">
+<div class="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-xl" data-icon="insights">insights</span>
+</div>
+<div class="flex flex-col">
+<p class="text-label-md font-label-md text-on-surface font-medium leading-snug">
+<span class="font-bold text-primary">2 of 3 photos</span> show the same person as the reference.
+            </p>
+<p class="text-label-sm font-label-sm text-tertiary mt-0.5">Confidence weighted by facial bone structure &amp; age-gap adjustments</p>
+</div>
+</div>
+</section>
+<!-- Section 4: Photos to Check Section (2-Column Grid) -->
+<section class="flex flex-col gap-2.5">
+<div class="flex items-center justify-between px-0.5">
+<div class="flex items-center gap-1.5">
+<h2 class="text-label-lg font-label-lg text-on-surface">Photos to check</h2>
+<span class="text-label-sm font-label-sm bg-surface-container px-2 py-0.5 rounded-full text-on-surface-variant font-semibold">3</span>
+</div>
+<button class="text-label-md font-label-md text-primary font-semibold flex items-center gap-0.5 hover:underline active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span> Add photo
+          </button>
+</div>
+<!-- 2-Column Responsive Grid -->
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Card 1: Match -->
+<div class="bg-surface-container-lowest rounded-xl p-2 border border-outline-variant/40 archival-card-shadow flex flex-col justify-between">
+<div>
+<div class="relative w-full h-28 rounded-lg overflow-hidden border border-outline-variant/20 bg-surface-container-low">
+<img class="w-full h-full object-cover object-center" data-alt="A vintage colored photo from 1984 of a mature gentleman with smiling expression at an outdoor summer family reunion, soft natural lighting and warm linen archival colors consistent with 1980s Kodachrome prints." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJHTkae5h-cHJBNKqFDJCRSybFoeaB4WNTTMgKQiR-4UxQ5T2CHPtz7EGeOvGM0cIxlZWdPpue0k1XyNrVZ3d0kSqQSVhYRNl0bizZMF-J4qf4Iv1PeFbKbK2zXiJW_pAdwsGdIVRtIq3f5vXYHsU4MtlvVM5a4HaZsfWVovk9xN8_snCJ2DCJ6UnW1rwx1aaJnBZqRGOb-R7Syh9ArN_tmrEgetGa7RVokELjA0f1y9d5DIFnZMQY"/>
+<span class="absolute top-1.5 left-1.5 bg-surface-container-lowest/90 backdrop-blur-xs text-on-surface px-1.5 py-0.5 rounded text-label-sm font-label-sm shadow-xs">
+                  1984
+                </span>
+</div>
+<div class="mt-2">
+<p class="text-label-sm font-label-sm text-on-surface font-medium truncate" title="william_reunion_1984.jpg">william_reunion_1984.jpg</p>
+</div>
+</div>
+<!-- Verdict Badge: Green Pale Herbal -->
+<div class="mt-2.5 pt-2 border-t border-outline-variant/20 flex flex-col gap-1">
+<div class="inline-flex items-center gap-1 bg-[#EBF5EE] text-[#2C6E49] px-2 py-0.5 rounded-full text-label-sm font-label-sm font-semibold w-fit">
+<span class="material-symbols-outlined text-xs" data-icon="check_circle">check_circle</span>
+<span>Strong match</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant pl-0.5">Same person · 0.54</span>
+</div>
+</div>
+<!-- Card 2: Non-Match -->
+<div class="bg-surface-container-lowest rounded-xl p-2 border border-outline-variant/40 archival-card-shadow flex flex-col justify-between">
+<div>
+<div class="relative w-full h-28 rounded-lg overflow-hidden border border-outline-variant/20 bg-surface-container-low">
+<img class="w-full h-full object-cover object-center" data-alt="A vintage 1978 black and white office portrait photograph of an unknown colleague with retro eyeglasses and office attire with distinct jawline and facial structure under soft vintage fluorescent lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9A6bcttAOC4Wa-PxHECJP18kHAug08BaWIPV6crYpQi0LeK5EaTNEP8c_DF0669T7IPIl_nBmUfKCmTzuWx1dlFokLhTjakIm0FaQ8b697rAMs5WKovNSCtAJIDK2UphjZXcQ9TFLapTdgD0TB4J7xnmSNFAhvEyr7FDqb2PkjpC9eR1ixRw9cxr9GqmbzhW7uLs6ML_jEOuxbQjZcuj6x-dygCGj6DLlyFuPqYw0A7FrmjYzgU1Y"/>
+<span class="absolute top-1.5 left-1.5 bg-surface-container-lowest/90 backdrop-blur-xs text-on-surface px-1.5 py-0.5 rounded text-label-sm font-label-sm shadow-xs">
+                  1978
+                </span>
+</div>
+<div class="mt-2">
+<p class="text-label-sm font-label-sm text-on-surface font-medium truncate" title="unknown_colleague_1978.jpg">unknown_colleague_1978.jpg</p>
+</div>
+</div>
+<!-- Verdict Badge: Rose Non-match -->
+<div class="mt-2.5 pt-2 border-t border-outline-variant/20 flex flex-col gap-1">
+<div class="inline-flex items-center gap-1 bg-[#FAECEC] text-[#A64242] px-2 py-0.5 rounded-full text-label-sm font-label-sm font-semibold w-fit">
+<span class="material-symbols-outlined text-xs" data-icon="cancel">cancel</span>
+<span>Distinct features</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant pl-0.5">Different person · 0.00</span>
+</div>
+</div>
+<!-- Card 3: Multi-face group photo -->
+<div class="bg-surface-container-lowest rounded-xl p-2 border border-outline-variant/40 archival-card-shadow flex flex-col justify-between">
+<div>
+<div class="relative w-full h-28 rounded-lg overflow-hidden border border-outline-variant/20 bg-surface-container-low">
+<img class="w-full h-full object-cover object-center" data-alt="An authentic 1965 family picnic photograph taken outdoors on a sunny day depicting two relatives standing side-by-side with warm 1960s film saturation and soft linen textured paper effect." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-Zz74LXnamjhTj6-OKXyDDv3GKAHl5BTKU_FMSxtptKdYbG4wJo-jzm1HYUD4jrZNhdIGO3S2UOvaN0vL34UCW8JWO1CdeU27YsgOwTi64YAocKlyfA643BbO9qGVpu9Qd9n6mq-BMyztrAQPux4KlCSIAJnhGWCE9ZyGRzR8nUV8HPwC5e_TeMe5AO8i916COMGk8oN_X0t8k7G2rIItBlZbRBGmPof9YZM00TpJAcNiCbx86ODx"/>
+<span class="absolute top-1.5 left-1.5 bg-surface-container-lowest/90 backdrop-blur-xs text-on-surface px-1.5 py-0.5 rounded text-label-sm font-label-sm shadow-xs">
+                  1965
+                </span>
+<!-- Soft humanistic numbered indicator tags (not bounding box crosshairs) -->
+<div class="absolute top-5 left-4 w-5 h-5 rounded-full bg-primary text-white text-label-sm font-bold flex items-center justify-center shadow-md border border-white">1</div>
+<div class="absolute top-7 right-6 w-5 h-5 rounded-full bg-surface-container-highest text-on-surface text-label-sm font-bold flex items-center justify-center shadow-md border border-white">2</div>
+</div>
+<div class="mt-2">
+<p class="text-label-sm font-label-sm text-on-surface font-medium truncate" title="family_picnic_1965.jpg">family_picnic_1965.jpg</p>
+</div>
+</div>
+<!-- Verdict Notes -->
+<div class="mt-2.5 pt-2 border-t border-outline-variant/20 flex flex-col gap-1">
+<div class="inline-flex items-center gap-1 bg-[#FDF6E9] text-[#926017] px-2 py-0.5 rounded-full text-label-sm font-label-sm font-semibold w-fit">
+<span class="material-symbols-outlined text-xs" data-icon="group">group</span>
+<span>2 faces found</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface pl-0.5 leading-tight">Face 1: Same person · 0.61</span>
+</div>
+</div>
+<!-- Card 4: Add New Photo Dashed Slot -->
+<button class="bg-surface-container-low/70 hover:bg-surface-container-high border-2 border-dashed border-outline-variant/60 rounded-xl p-3 flex flex-col items-center justify-center text-center gap-2 transition-all duration-150 active:scale-95 min-h-[175px] group">
+<div class="w-10 h-10 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors shadow-xs">
+<span class="material-symbols-outlined text-xl" data-icon="add_photo_alternate">add_photo_alternate</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-md font-label-md text-primary font-semibold">+ Add photo</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">JPG, PNG or TIFF</span>
+</div>
+</button>
+</div>
+</section>
+<!-- Trust note card -->
+<section class="mb-4">
+<div class="bg-[#EEF2F4] border border-[#d6dfe4] rounded-xl p-3 flex items-start gap-2.5">
+<span class="material-symbols-outlined text-[#5A6E78] text-lg shrink-0 mt-0.5" data-icon="verified_user">verified_user</span>
+<p class="text-label-sm font-label-sm text-[#384a52] leading-relaxed">
+            Photographs remain your private family memory. Biometric vectors are calculated strictly inside this browser session and never sent to external servers.
+          </p>
+</div>
+</section>
+</main>
+<!-- Section 5: Sticky / Pinned Bottom Configuration & CTAs -->
+<footer class="fixed bottom-12 left-0 right-0 w-full max-w-[390px] mx-auto z-40 bg-surface-container-lowest/95 backdrop-blur-md px-4 pt-3 pb-2.5 border-t border-outline-variant/30 shadow-lg flex flex-col gap-2.5">
+<!-- Threshold Adjustment Section -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center text-label-sm font-label-sm">
+<span class="font-semibold text-on-surface">Match threshold: <span class="text-primary font-bold" id="thresholdVal">0.26</span> <span class="text-on-surface-variant font-normal">(default)</span></span>
+<span class="text-tertiary">Cosine likeness</span>
+</div>
+<!-- Slider with Lenient / Stricter labels -->
+<div class="px-1 flex flex-col">
+<input aria-label="Match threshold slider" class="w-full accent-primary h-1.5 bg-surface-container-high rounded-lg cursor-pointer appearance-none" id="thresholdSlider" max="0.80" min="0.10" step="0.01" type="range" value="0.26"/>
+<div class="flex justify-between items-center text-[10px] text-on-surface-variant mt-1">
+<span>← More lenient</span>
+<span>Stricter →</span>
+</div>
+</div>
+<p class="text-[11px] leading-tight text-on-surface-variant">
+          Scores at or above this count as the same person. Higher is stricter.
+        </p>
+</div>
+<!-- Action Cluster -->
+<div class="flex flex-col gap-1.5 pt-0.5">
+<button class="w-full bg-[#C26D53] hover:bg-[#B05C43] active:scale-[0.99] text-white font-label-lg text-label-lg py-2.5 px-4 rounded-xl shadow-sm transition-all duration-150 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="compare">compare</span>
+          Compare photos
+        </button>
+<div class="flex items-center justify-between px-1">
+<button class="text-label-sm font-label-sm text-tertiary hover:text-on-surface active:scale-95 transition-transform flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="restart_alt">restart_alt</span> Reset to defaults
+          </button>
+<span class="text-[10px] text-tertiary">Archival Engine v2.4</span>
+</div>
+</div>
+</footer>
+<!-- Bottom Navigation Bar (Shared Component BottomNavBar) -->
+<nav class="fixed bottom-0 left-0 w-full max-w-[390px] mx-auto z-50 flex justify-around items-center px-4 py-2 bg-surface-container-lowest border-t border-outline-variant/30 shadow-sm">
+<!-- Item 1: Compare (Active based on context) -->
+<a class="flex flex-col items-center justify-center text-primary font-semibold active:scale-95 transition-transform duration-150" href="#compare">
+<span class="material-symbols-outlined text-xl" data-icon="center_focus_strong" style="font-variation-settings: 'FILL' 1;">center_focus_strong</span>
+<span class="text-label-sm font-label-sm">Compare</span>
+</a>
+<!-- Item 2: Archive (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:scale-95 transition-transform duration-150 hover:text-primary" href="#archive">
+<span class="material-symbols-outlined text-xl" data-icon="photo_library">photo_library</span>
+<span class="text-label-sm font-label-sm">Archive</span>
+</a>
+<!-- Item 3: Privacy (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:scale-95 transition-transform duration-150 hover:text-primary" href="#privacy">
+<span class="material-symbols-outlined text-xl" data-icon="lock">lock</span>
+<span class="text-label-sm font-label-sm">Privacy</span>
+</a>
+</nav>
+</div>
+<!-- Interactive script for range feedback -->
+<script>
+    const slider = document.getElementById('thresholdSlider');
+    const valDisplay = document.getElementById('thresholdVal');
+    if(slider && valDisplay) {
+      slider.addEventListener('input', (e) => {
+        valDisplay.textContent = parseFloat(e.target.value).toFixed(2);
+      });
+    }
+  </script>
+</body></html>

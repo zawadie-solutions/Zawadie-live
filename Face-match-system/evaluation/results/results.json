@@ -1,0 +1,157 @@
+{
+  "generated": "2026-09-23 11:45 UTC",
+  "model": "buffalo_l",
+  "fgnet": {
+    "detection": {
+      "images": 1002,
+      "no_face": 0,
+      "multiple_faces": 0
+    },
+    "n_genuine": 5808,
+    "n_impostor": 495693,
+    "auc": 0.9826450198691974,
+    "eer": 0.05886156763451278,
+    "eer_threshold": 0.17294791340827942,
+    "threshold_at_far_0.01": 0.2589435279369354,
+    "tar_at_far_0.01": 0.8541666666666666,
+    "actual_far_at_far_0.01": 0.009998123838746967,
+    "tar_by_age_gap": [
+      {
+        "age_gap": "0-4",
+        "n_genuine": 1655,
+        "tar": 0.9764350453172206,
+        "median_score": 0.6202571392059326
+      },
+      {
+        "age_gap": "5-9",
+        "n_genuine": 1590,
+        "tar": 0.949685534591195,
+        "median_score": 0.5125172734260559
+      },
+      {
+        "age_gap": "10-19",
+        "n_genuine": 1700,
+        "tar": 0.7635294117647059,
+        "median_score": 0.3871728777885437
+      },
+      {
+        "age_gap": "20-29",
+        "n_genuine": 575,
+        "tar": 0.6695652173913044,
+        "median_score": 0.36578845977783203
+      },
+      {
+        "age_gap": "30+",
+        "n_genuine": 288,
+        "tar": 0.5277777777777778,
+        "median_score": 0.27057015895843506
+      }
+    ],
+    "adult_pairs": {
+      "n_genuine": 1164,
+      "n_impostor": 64177,
+      "auc": 0.9998319456601632,
+      "eer": 0.006449423300797126,
+      "eer_threshold": 0.25264716148376465,
+      "threshold_at_far_0.01": 0.24183101952075958,
+      "tar_at_far_0.01": 0.9965635738831615,
+      "actual_far_at_far_0.01": 0.00998800193215638,
+      "subjects": 64,
+      "at_operating_threshold": {
+        "threshold": 0.2589435279369354,
+        "tar": 0.9948453608247423,
+        "far": 0.006544400641974539
+      },
+      "tar_by_age_gap": [
+        {
+          "age_gap": "0-4",
+          "n_genuine": 303,
+          "tar": 0.9933993399339934,
+          "median_score": 0.7020623087882996
+        },
+        {
+          "age_gap": "5-9",
+          "n_genuine": 297,
+          "tar": 1.0,
+          "median_score": 0.6571565270423889
+        },
+        {
+          "age_gap": "10-19",
+          "n_genuine": 354,
+          "tar": 1.0,
+          "median_score": 0.6181614398956299
+        },
+        {
+          "age_gap": "20-29",
+          "n_genuine": 150,
+          "tar": 1.0,
+          "median_score": 0.5522060394287109
+        },
+        {
+          "age_gap": "30+",
+          "n_genuine": 60,
+          "tar": 0.9333333333333333,
+          "median_score": 0.4981266260147095
+        }
+      ]
+    },
+    "child_to_adult_genuine": {
+      "n": 1195,
+      "tar": 0.5774058577405857
+    }
+  },
+  "cfp": {
+    "detection": {
+      "frontal": {
+        "images": 5000,
+        "no_face": 11,
+        "multiple_faces": 6
+      },
+      "profile": {
+        "images": 2000,
+        "no_face": 33,
+        "multiple_faces": 1
+      }
+    },
+    "FF": {
+      "n_genuine": 3500,
+      "n_impostor": 3500,
+      "auc": 0.9957621224489797,
+      "eer": 0.0034285714285714236,
+      "eer_threshold": 0.2258264124393463,
+      "threshold_at_far_0.01": 0.14919929206371307,
+      "tar_at_far_0.01": 0.9934285714285714,
+      "actual_far_at_far_0.01": 0.01,
+      "accuracy_10fold_mean": 0.9965714285714284,
+      "accuracy_10fold_std": 0.00232115382989597,
+      "at_operating_threshold": {
+        "threshold": 0.2589435279369354,
+        "tar": 0.9922857142857143,
+        "far": 0.0
+      }
+    },
+    "FP": {
+      "n_genuine": 3500,
+      "n_impostor": 3500,
+      "auc": 0.9855398367346939,
+      "eer": 0.020714285714285734,
+      "eer_threshold": 0.13594017922878265,
+      "threshold_at_far_0.01": 0.15170243382453918,
+      "tar_at_far_0.01": 0.9777142857142858,
+      "actual_far_at_far_0.01": 0.01,
+      "accuracy_10fold_mean": 0.9855714285714287,
+      "accuracy_10fold_std": 0.003857142857142856,
+      "at_operating_threshold": {
+        "threshold": 0.2589435279369354,
+        "tar": 0.9628571428571429,
+        "far": 0.0
+      }
+    }
+  },
+  "latency": {
+    "pairs": 20,
+    "median_s": 0.8766641500114929,
+    "p95_s": 1.1534749999991618,
+    "max_s": 1.3321512000111397
+  }
+}

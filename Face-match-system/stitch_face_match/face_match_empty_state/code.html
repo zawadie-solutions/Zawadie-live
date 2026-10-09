@@ -1,0 +1,333 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Face Match - Empty State</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-fixed-dim": "#fcba5f",
+            "on-primary-fixed": "#3a0a00",
+            "error": "#ba1a1a",
+            "on-secondary": "#ffffff",
+            "secondary": "#835400",
+            "on-tertiary": "#ffffff",
+            "on-error": "#ffffff",
+            "background": "#fcf9f4",
+            "inverse-surface": "#31302d",
+            "on-tertiary-fixed-variant": "#364a53",
+            "surface-container-low": "#f6f3ee",
+            "inverse-on-surface": "#f3f0eb",
+            "tertiary": "#4b5f69",
+            "secondary-fixed": "#ffddb5",
+            "on-secondary-fixed": "#2a1800",
+            "primary-fixed-dim": "#ffb59f",
+            "on-secondary-fixed-variant": "#643f00",
+            "on-secondary-container": "#734900",
+            "on-background": "#1c1c19",
+            "secondary-container": "#fcba5f",
+            "primary": "#91462f",
+            "on-tertiary-fixed": "#091e26",
+            "surface": "#fcf9f4",
+            "tertiary-container": "#637882",
+            "on-error-container": "#93000a",
+            "on-primary-container": "#fffbff",
+            "surface-variant": "#e5e2dd",
+            "on-primary-fixed-variant": "#76321d",
+            "surface-container-high": "#ebe8e3",
+            "primary-container": "#af5e45",
+            "on-surface": "#1c1c19",
+            "surface-container-highest": "#e5e2dd",
+            "on-primary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "error-container": "#ffdad6",
+            "surface-tint": "#944931",
+            "on-tertiary-container": "#fbfdff",
+            "primary-fixed": "#ffdbd0",
+            "tertiary-fixed": "#d0e6f1",
+            "surface-bright": "#fcf9f4",
+            "on-surface-variant": "#54433e",
+            "outline": "#87736d",
+            "outline-variant": "#dac1ba",
+            "surface-container": "#f0ede9",
+            "surface-dim": "#dcdad5",
+            "tertiary-fixed-dim": "#b5cad5",
+            "inverse-primary": "#ffb59f"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "gutter": "1.5rem",
+            "gutter-sm": "1rem",
+            "margin-mobile": "1rem",
+            "space-xl": "2.5rem",
+            "margin-tablet": "1.5rem",
+            "space-md": "1rem",
+            "margin": "2rem",
+            "gutter-lg": "2rem",
+            "margin-desktop": "3rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.03em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "0", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.005em", "fontWeight": "400" }],
+            "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "display-lg-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "0", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-shadow-card {
+      box-shadow: 0 2px 8px -2px rgba(50, 40, 30, 0.05), 0 1px 3px 0 rgba(50, 40, 30, 0.03);
+    }
+    .custom-shadow-dock {
+      box-shadow: 0 -4px 16px -4px rgba(50, 40, 30, 0.06), 0 -1px 3px 0 rgba(50, 40, 30, 0.02);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col justify-between selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar (Shared Component JSON Source of Truth) -->
+<header class="bg-surface-container-lowest dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm sticky top-0 z-40">
+
+</header>
+<!-- Main Canvas Container -->
+<main class="flex-grow w-full max-w-7xl mx-auto px-6 lg:px-8 py-8 flex flex-col gap-6">
+<!-- Page Context Subtitle & Archival Banner -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-2 border-b border-surface-variant">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-surface-variant text-on-surface-variant">Session Setup</span>
+<span class="text-label-sm font-label-sm text-outline">·</span>
+
+</div>
+<h1 class="text-headline-lg font-headline-lg text-on-background tracking-tight">Compare Image fast</h1>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1 max-w-3xl">Photos are processed on this computer and are not saved.
+        </p>
+</div>
+<!-- Trust Assurance Box -->
+<div class="flex items-center gap-3 px-4 py-2.5 rounded-xl bg-surface-container-low border border-outline-variant/60 text-tertiary">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="verified_user">verified_user</span>
+<div class="text-left">
+<p class="text-label-sm font-label-sm text-on-surface font-semibold">100% Private Memory Vault</p>
+<p class="text-label-sm font-label-sm text-outline">Zero cloud transfers · In-memory execution</p>
+</div>
+</div>
+</div>
+<!-- 2-Column Progressive Inspection Workflow Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+<!-- LEFT COLUMN: Step 1 (Reference Photo) - Active Prominent State -->
+<div class="lg:col-span-6 flex flex-col bg-surface-container-lowest rounded-2xl border-2 border-primary/25 custom-shadow-card p-6 relative">
+<!-- Step Indicator & Header -->
+<div class="flex items-center justify-between pb-4 mb-4 border-b border-surface-container">
+<div class="flex items-center gap-2.5">
+<span class="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center text-label-sm font-label-sm font-bold">1</span>
+<div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface tracking-tight">Reference photo</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Anchor portrait to evaluate subjects against</p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed text-label-sm font-label-sm font-semibold">
+            Action Required
+          </span>
+</div>
+<!-- Prominent Drop Zone (Archival Frame Aesthetic) -->
+<div class="flex-grow flex flex-col items-center justify-center text-center p-8 lg:p-10 rounded-xl border-2 border-dashed border-outline-variant bg-surface/60 hover:bg-surface-container-lowest hover:border-primary transition-all duration-200 cursor-pointer group">
+<!-- Tactile Archival Picture Frame Icon Badge -->
+<div class="w-20 h-20 rounded-2xl bg-surface-container flex items-center justify-center mb-4 border border-outline-variant/50 group-hover:scale-105 group-hover:border-primary-fixed-dim transition-all duration-200 shadow-sm">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="portrait">portrait</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface mb-1">
+            Step 1: Choose a reference photo
+          </h3>
+<p class="text-body-md font-body-md text-on-surface-variant mb-6 max-w-sm">
+            Drop a photo here, or select a high-fidelity image from your system.
+          </p>
+<!-- Primary Terracotta Upload Button -->
+<button class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-on-primary text-label-lg font-label-lg hover:bg-primary-container shadow-md hover:shadow-lg transition-all duration-200 active:scale-[0.99] mb-4">
+<span class="material-symbols-outlined text-xl" data-icon="upload_file">upload_file</span>
+<span class="">Choose reference photo</span>
+</button>
+<!-- Descriptive Helper Meta -->
+<p class="text-body-sm font-body-sm text-outline max-w-md leading-relaxed">
+            Select a clear portrait or vintage photograph of the baseline person to compare others against.
+          </p>
+</div>
+<!-- Technical Specification Footer -->
+<div class="mt-4 pt-4 border-t border-surface-container-high flex flex-wrap items-center justify-between text-label-sm font-label-sm text-outline gap-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]" data-icon="info">info</span>
+<span class="">Supports JPG, PNG, TIFF · Processed entirely on your device.</span>
+</div>
+<span class="text-on-surface-variant font-medium">Single subject recommended</span>
+</div>
+</div>
+<!-- RIGHT COLUMN: Step 2 (Photos to Check) - Waiting / Inactive State -->
+<div class="lg:col-span-6 flex flex-col bg-surface-container-low/70 rounded-2xl border border-outline-variant/60 p-6 relative">
+<!-- Step Indicator & Header (Muted Waiting) -->
+<div class="flex items-center justify-between pb-4 mb-4 border-b border-surface-container">
+<div class="flex items-center gap-2.5">
+<span class="w-6 h-6 rounded-full bg-surface-variant text-outline flex items-center justify-center text-label-sm font-label-sm font-bold">2</span>
+<div>
+<h2 class="text-headline-sm font-headline-sm text-outline tracking-tight">Photos to check</h2>
+<p class="text-body-sm font-body-sm text-outline">Candidate memories and generational albums</p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-variant text-outline text-label-sm font-label-sm font-medium">
+            Step 2: Add photos to compare
+          </span>
+</div>
+<!-- Waiting Card Content -->
+<div class="flex-grow flex flex-col items-center justify-center text-center p-8 rounded-xl border border-outline-variant/40 bg-surface-container-lowest/50">
+<!-- Subdued Archival Album Icon -->
+<div class="w-16 h-16 rounded-2xl bg-surface-variant/40 flex items-center justify-center mb-4 text-outline/80 border border-outline-variant/30">
+<span class="material-symbols-outlined text-3xl" data-icon="photo_library">photo_library</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface-variant mb-2">
+            No photos to compare yet
+          </h3>
+<p class="text-body-md font-body-md text-outline mb-6 max-w-md">
+            Once you upload a reference portrait on the left, you can add one or more family photos here to analyze likeness across years.
+          </p>
+<!-- Disabled Trigger Button with Tooltip Prompt -->
+<div class="relative group/btn mb-8">
+<button class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-surface-container-high text-outline cursor-not-allowed text-label-md font-label-md border border-outline-variant/40" disabled="">
+<span class="material-symbols-outlined text-lg" data-icon="add_photo_alternate">add_photo_alternate</span>
+<span class="">Add photos to check</span>
+</button>
+<div class="absolute -top-9 left-1/2 -translate-x-1/2 px-2.5 py-1 rounded bg-inverse-surface text-inverse-on-surface text-label-sm font-label-sm whitespace-nowrap opacity-0 group-hover/btn:opacity-100 transition-opacity pointer-events-none shadow-sm">
+              Add a reference photo first
+            </div>
+</div>
+<!-- Step Progression Wireframe Outlines (Archival Roadmap) -->
+<div class="w-full grid grid-cols-3 gap-3 pt-6 border-t border-outline-variant/30">
+<div class="p-3 rounded-lg border border-dashed border-outline-variant/50 bg-surface-container-lowest/30 flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-outline/60 text-xl mb-1" data-icon="image">image</span>
+<p class="text-label-sm font-label-sm text-on-surface-variant font-semibold">1. Vintage Photos</p>
+<p class="text-[10px] leading-3 text-outline mt-0.5">Upload candid or portrait snaps</p>
+</div>
+<div class="p-3 rounded-lg border border-dashed border-outline-variant/50 bg-surface-container-lowest/30 flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-outline/60 text-xl mb-1" data-icon="face">face</span>
+<p class="text-label-sm font-label-sm text-on-surface-variant font-semibold">2. Detection</p>
+<p class="text-[10px] leading-3 text-outline mt-0.5">Automated facial framing</p>
+</div>
+<div class="p-3 rounded-lg border border-dashed border-outline-variant/50 bg-surface-container-lowest/30 flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-outline/60 text-xl mb-1" data-icon="auto_awesome">auto_awesome</span>
+<p class="text-label-sm font-label-sm text-on-surface-variant font-semibold">3. Likeness</p>
+<p class="text-[10px] leading-3 text-outline mt-0.5">Humanized feature comparison</p>
+</div>
+</div>
+</div>
+<!-- Footnote Status -->
+<div class="mt-4 pt-4 border-t border-outline-variant/30 flex items-center justify-between text-label-sm font-label-sm text-outline">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px]" data-icon="hourglass_empty">hourglass_empty</span>
+<span class="">Awaiting baseline portrait</span>
+</span>
+<span class="">Batch upload enabled on step completion</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Sticky Bottom Dock: Comparison Controls & Threshold Slider -->
+<section class="w-full bg-surface-container-lowest border-t border-outline-variant custom-shadow-dock py-4 mt-8 sticky bottom-0 z-30">
+<div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-5">
+<!-- Threshold Calibration Slider Control -->
+<div class="flex items-center gap-4 w-full md:w-auto">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<label class="text-label-md font-label-md text-on-surface font-semibold" for="threshold-slider">
+              Match threshold:
+            </label>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-mono text-label-sm font-label-sm border border-outline-variant/60">
+              0.26 (default)
+            </span>
+</div>
+<span class="text-body-sm font-body-sm text-outline mt-0.5">
+            Scores at or above this count as the same person. Higher is stricter.
+          </span>
+</div>
+<!-- Tactical Range Slider with Archival Styling -->
+<div class="w-36 lg:w-44 hidden sm:block">
+<input class="w-full h-1.5 bg-surface-variant rounded-lg appearance-none cursor-pointer accent-primary focus:outline-none" id="threshold-slider" max="0.50" min="0.10" step="0.01" type="range" value="0.26">
+</div>
+</div>
+<!-- Execution Actions Cluster -->
+<div class="flex items-center justify-end gap-3 w-full md:w-auto">
+<!-- Disabled Secondary Reset Action -->
+<button class="px-4 py-2 rounded-xl text-outline border border-transparent cursor-not-allowed text-label-md font-label-md flex items-center gap-1.5 opacity-60" disabled="">
+<span class="material-symbols-outlined text-[18px]" data-icon="refresh">refresh</span>
+<span class="">Reset</span>
+</button>
+<!-- Primary Execution Button (Disabled State with Inactive Visual Affordance) -->
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3 rounded-xl bg-surface-variant text-outline cursor-not-allowed text-label-lg font-label-lg border border-outline-variant/50 transition-colors shadow-none select-none" disabled="">
+<span class="material-symbols-outlined text-xl" data-icon="compare">compare</span>
+<span class="">Compare photos</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Footer (Shared Component JSON Source of Truth) -->
+<footer class="bg-surface-container-low dark:bg-surface-dim border-t border-outline-variant dark:border-outline w-full">
+<div class="max-w-7xl mx-auto px-8 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+<!-- Copyright & Local Certification Notice -->
+<div class="text-left">
+<p class="text-body-sm font-body-sm text-on-surface-variant dark:text-outline-variant">
+          © 2024 Face Match Archival Discovery. On-device processing certified. Photographs remain your private family memory; no biometric data is ever stored, sold, or shared.
+        </p>
+</div>
+<!-- Footer Policy Links -->
+<div class="flex flex-wrap items-center gap-6 text-label-sm font-label-sm">
+
+
+
+
+</div>
+</div>
+</footer>
+
+
+</body></html>
